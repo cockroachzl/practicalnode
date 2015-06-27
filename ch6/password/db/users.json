@@ -1,5 +1,17 @@
-[{
-  "email": "hi@azat.co",
-  "admin": true,
-  "password": "1"
-}]
+[
+  {
+    "email": "hi@azat.co",
+    "admin": true,
+    "password": "1"
+  },
+  {
+    "email": "66@6677.cn",
+    "admin": true,
+    "password": "66"
+  },
+  {
+    "email": "77@6677.cn",
+    "admin": true,
+    "password": "77"
+  }
+]

@@ -11,21 +11,22 @@ var data = {
 }
 data.body = process.argv[2];
 
-fs.readFile('jade-example.jade', 'utf-8', function(error, source){
-  var template = jade.compile(source);
-  var html = template(data)
-  console.log(html)
-});
+//fs.readFile('jade-example.jade', 'utf-8', function(error, source){
+//  var template = jade.compile(source);
+//  var html = template(data)
+//  console.log(html)
+//});
 
 //jade.render
 
-// fs.readFile('jade-example.jade', 'utf-8', function(error, source){
+//fs.readFile('jade-example.jade', 'utf-8', function(error, source){
 //   var html = jade.render(source, data)
 //   console.log(html)
-// });
+//});
 
 //jade.renderFile
 
-// jade.renderFile('jade-example.jade', data, function(error, html){
+//jade.renderFile('jade-example.jade', data, function(error, html){
 //   console.log(html)
-// });
+//});
+console.log(jade.renderFile('jade-example.jade', data));

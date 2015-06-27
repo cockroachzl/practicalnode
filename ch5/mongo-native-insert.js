@@ -14,7 +14,7 @@ db.open(function(error, dbConnection){
   }
   console.log('db state: ', db._state);
   item = {
-    name: 'Azat'
+    name: 'liang'
   }
   dbConnection.collection('messages').insert(item, function(error, item){
     if (error) {

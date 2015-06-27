@@ -1,7 +1,10 @@
-var hapi = require('hapi'),
-  server = hapi.createServer('localhost', 3000)
-  mongoskin = require('mongoskin')
+var Hapi = require('hapi'),
+  //server = hapi.createServer('localhost', 3000)
+  server = new Hapi.Server(),
+  mongoskin = require('mongoskin');
+var Good = require('good');
 
+server.connection({ port: 3000 });
 var db = mongoskin.db('mongodb://@localhost:27017/test', {safe:true})
 var id = mongoskin.helper.toObjectID
 
@@ -88,10 +91,33 @@ var options = {
   }
 };
 
-server.pack.require('good', options, function (err) {
-  if (!err) {
-      // Plugin loaded successfully
-  }
-});
+//server.pack.require('good', options, function (err) {
+//  if (!err) {
+//      // Plugin loaded successfully
+//  }
+//});
+//
+//server.start(function () {
+//  console.log('Server running at:', server.info.uri);
+//});
 
-server.start()
+server.register({
+  register: Good,
+  options: {
+    reporters: [{
+      reporter: require('good-console'),
+      events: {
+        response: '*',
+        log: '*'
+      }
+    }]
+  }
+}, function (err) {
+  if (err) {
+    throw err; // something bad happened loading the plugin
+  }
+
+  server.start(function () {
+    server.log('info', 'Server running at: ' + server.info.uri);
+  });
+});

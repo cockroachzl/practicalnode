@@ -4,7 +4,7 @@ var express = require('express');
 
 if (cluster.isMaster) {
   console.log (' Fork %s worker(s) from master', numCPUs);
-  for (var i = 0; i < numCPUs; i++) {
+  for (var i = 0; i < numCPUs+1; i++) {
     cluster.fork();
   }
   cluster.on('online', function(worker) {

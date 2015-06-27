@@ -27,6 +27,12 @@ app.get('/e', function (req, res, next) {
     // next(new Error('Database is down.'));
   });
 });
+app.get('/f', function (req, res, next) {
+
+    throw new Error('Database is down.');
+
+});
+
 
 app.use(function (error, req, res, next) {
   if (domain.active) {

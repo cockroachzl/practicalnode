@@ -2,7 +2,6 @@
 /*
  * GET users listing.
  */
-
 exports.list = function(req, res){
   res.send("respond with a resource");
 };
@@ -11,7 +10,6 @@ exports.list = function(req, res){
 /*
  * GET login page.
  */
-
 exports.login = function(req, res, next) {
   res.render('login');
 };
@@ -19,7 +17,6 @@ exports.login = function(req, res, next) {
 /*
  * GET logout route.
  */
-
 exports.logout = function(req, res, next) {
   req.session.destroy();
   res.redirect('/');
@@ -29,7 +26,6 @@ exports.logout = function(req, res, next) {
 /*
  * POST authenticate route.
  */
-
 exports.authenticate = function(req, res, next) {
   if (!req.body.email || !req.body.password)
     return res.render('login', {error: "Please enter your email and password."});
